@@ -40,21 +40,44 @@ void push () {
         top++;
     }
     else {
-        cout << "Full...";
+        cout << "Full...\n";
     }
 }
 
 void pop () {
     if (empty()) {
-        stack[top] = NULL;
         top--;
+        stack[top] = 0; // NULL
     }
     else {
-        cout << "Empty...";
+        cout << "Empty...\n";
     }
 }
 
 int main(int argc, const char * argv[]) {
+    
+    top = 0, maxLength = 5; // First Value
+    int select;
+    
+    while (select != 4) {
+        cout << "(1) Push\n(2) Pop\n(3) Show stack\n(4) Exit"; // Menu
+        cout << "\nSelect : ";
+        cin >> select;
+        switch (select) {
+            case 1: // Push
+            push();
+            break;
+            case 2: // Pop
+            pop();
+            break;
+            case 3: // Show stack
+            for (int i = 0; i<maxLength; i++) {
+                cout << "stack[" << i << "] : " << stack[i] << endl;
+            }
+            break;
+            default: cout << "Try again...\n";
+        }
+    }
     
     return 0;
 }
